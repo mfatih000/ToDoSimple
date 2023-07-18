@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #ccc;
+    font-family: sans-serif;
+}
+
+.container{
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+
+}
+
+#title{
+    text-align: center;
+    font-size: 50px;
+}
+
+#inputText{
+    width: 300px;
+    height: 46px;
+    color: purple;
+    border: 1px solid red;
+    outline: none;
+    font-size: 25px;
+    vertical-align: middle;
+    border: 3px solid orange;
+    border-radius: 30px;
+}
+
+#inputAdd{
+    width: 80px;
+    height: 46px;
+    border-radius: 30px;
+    border: greenyellow;
+    outline: none;
+    background-color: green;
+    color: wheat;
+}
+#inputAdd :active{
+    background: blue;
+}
+#inputClear{
+    width: 60px;
+    height: 46px;
+    border-radius: 30px;
+    border: greenyellow;
+    outline: none;
+    background-color: red;
+    color: wheat;
+    text-align: center;
+}
+
+.paragraph-style{
+    margin: 0;
+    font-size: 35px;
+    color: purple;
+    text-transform:capitalize ;
+    cursor: pointer;
+}
+.to-dos{
+    margin-top: 20px;
+}
