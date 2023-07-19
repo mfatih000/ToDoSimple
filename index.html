@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>To Do</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy To Do App</title>
 </head>
 <body>
-    <div class="container">
-        <h1 id="title">To Do List</h1>
-        <form action="#">
-            <input type="text" id="inputText">
-            <input type="submit" id="inputAdd" value="Add">
-            <input type="submit" id="inputClear" value="Clear">
-        </form>
-        <div class="" id="toDoContainer">
-
+     <div class="container">
+        <div class="todo-app">
+            <h2>To-Do List <img src="images/icon.png"></h2>
+            <div class="row">
+                <Button onclick="clearInput()" id="clear">clear</Button>
+                <input type="text" id="input-box" placeholder="Add Your Text">
+                <Button onclick="addTask()" id="addTask">Add</Button>
+                <Button onclick="removeAll()" id="removeButton">ToDo Clear</Button>
+            </div>
+            <ul id="list-container">
+                
+            </ul>
         </div>
-    </div>
-    <script src="app.js"></script>
+
+     </div>
+     <script src="app.js"></script>
 </body>
 </html>
