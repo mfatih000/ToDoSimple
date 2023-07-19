@@ -38,6 +38,7 @@ listContainer.addEventListener("click", function (e) {
 
 function removeAll() {
     while (listContainer.firstChild) listContainer.removeChild(listContainer.firstChild);
+    save();
 }
 
 function save() {
