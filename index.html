@@ -11,9 +11,11 @@
         <div class="todo-app">
             <h2>To-Do List <img src="images/icon.png"></h2>
             <div class="row">
-                <Button onclick="clearInput()" id="clear">clear</Button>
-                <input type="text" id="input-box" placeholder="Add Your Text">
-                <Button onclick="addTask()" id="addTask">Add</Button>
+        
+                <form id="task-form">
+                    <input type="text" id="input-box" placeholder="Add Your Text">
+                    <Button type="submit" onclick="addTask()" id="addTask">Add</Button>
+                </form>
                 <Button onclick="removeAll()" id="removeButton">ToDo Clear</Button>
             </div>
             <ul id="list-container">

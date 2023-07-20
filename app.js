@@ -1,10 +1,18 @@
 
+
+const taskForm = document.getElementById("task-form");
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
+const removeButton = document.getElementById("removeButton");
 let tasks = [];
 
+taskForm.addEventListener("submit", function (e) {
+  e.preventDefault(); 
+  addTask(); 
+});
+
 function addTask() {
-  if (inputBox.value === "") {
+  if (inputBox.value.trim() === "") {
     alert("You have to write something");
   } else {
     const task = inputBox.value;
@@ -12,6 +20,7 @@ function addTask() {
       tasks.push({ task, checked: false });
       displayTask();
       save();
+      inputBox.value = ""; // Görev eklendikten sonra metin kutusunu temizle.
     } else {
       alert("This task already added");
     }
@@ -35,10 +44,6 @@ function displayTask() {
     span.innerHTML = "\u00d7";
     li.appendChild(span);
   });
-}
-
-function clearInput(){
-    inputBox.value="";
 }
 
 function removeAll() {
@@ -76,3 +81,4 @@ function show() {
 }
 
 window.onload = show;
+
