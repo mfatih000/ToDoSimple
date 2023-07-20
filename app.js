@@ -6,12 +6,13 @@ const listContainer = document.getElementById("list-container");
 const removeButton = document.getElementById("removeButton");
 let tasks = [];
 
-taskForm.addEventListener("submit", function (e) {
+function form_submit(e) {
   e.preventDefault(); 
   addTask(); 
-});
+}
 
 function addTask() {
+  // e.preventDefault(); 
   if (inputBox.value.trim() === "") {
     alert("You have to write something");
   } else {
@@ -25,25 +26,35 @@ function addTask() {
       alert("This task already added");
     }
   }
+  document.getElementById("test").innerHTML = "<pre>"+JSON.stringify(tasks)+"</pre>"
 }
 
 function displayTask() {
   listContainer.innerHTML = "";
-
+  var html_for_ui = ""
   tasks.forEach((taskObj, index) => {
     const { task, checked } = taskObj;
-
-    let li = document.createElement("li");
-    li.textContent = task;
-    if (checked) {
-      li.classList.add("checked");
+    var className = ''
+    if(checked==true) {
+      className = 'checked';
     }
-    listContainer.appendChild(li);
+    html_for_ui = html_for_ui + "<div class='d-flex justify-content-between'><span class='"+className+"' onclick='check_item("+index+")'>&bull;&nbsp;"+task+"</span>";
+    html_for_ui = html_for_ui + "<span onclick='remove_item("+index+")'>\u00d7</span></div>";
 
-    let span = document.createElement("span");
-    span.innerHTML = "\u00d7";
-    li.appendChild(span);
   });
+  listContainer.innerHTML = html_for_ui;
+  console.log(tasks)
+}
+function check_item(item_index){
+  tasks[item_index]['checked'] = !tasks[item_index]['checked']
+  displayTask()
+  save();
+}
+
+function remove_item(item_index){
+  tasks.splice(item_index, 1);
+  displayTask()
+  save();
 }
 
 function removeAll() {
@@ -51,22 +62,6 @@ function removeAll() {
   listContainer.innerHTML = "";
   save();
 }
-
-listContainer.addEventListener("click", function (e) {
-  if (e.target.tagName === "LI") {
-    const taskIndex = Array.from(listContainer.children).indexOf(e.target);
-    tasks[taskIndex].checked = !tasks[taskIndex].checked;
-    e.target.classList.toggle("checked");
-    save();
-  } else if (e.target.tagName === "SPAN") {
-    const taskIndex = Array.from(listContainer.children).indexOf(
-      e.target.parentElement
-    );
-    tasks.splice(taskIndex, 1);
-    e.target.parentElement.remove();
-    save();
-  }
-});
 
 function save() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
