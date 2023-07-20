@@ -1,6 +1,7 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const Button = document.getElementById("removebutton");
+let tasks = [];
 
 function addTask() {
     if (inputBox.value === '') {
@@ -8,17 +9,33 @@ function addTask() {
     }
 
     else {
+        const task = inputBox.value;
+        if (!tasks.includes(task)) {
+            tasks.push(task);
+            displayTask();
+        }
+        else {
+            alert("This task already added");
+        }
+
+    }
+
+    save();
+}
+
+function displayTask() {
+
+    listContainer.innerHTML = "";
+
+    tasks.forEach((task, index) => {
         let li = document.createElement("li");
-        li.innerHTML = inputBox.value;
+        li.textContent = task;
         listContainer.appendChild(li);
 
         let span = document.createElement("span");
         span.innerHTML = "\u00d7"
         li.appendChild(span);
-    }
-
-
-    save();
+    })
 }
 
 function clearInput() {
