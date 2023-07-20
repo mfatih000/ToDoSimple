@@ -37,6 +37,10 @@ function displayTask() {
   });
 }
 
+function clearInput(){
+    inputBox.value="";
+}
+
 function removeAll() {
   tasks = [];
   listContainer.innerHTML = "";
