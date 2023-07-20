@@ -35,24 +35,27 @@
 
 .row{
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
     background: #edeef0;
     border-radius: 30px;
-    padding-left: 20px;
+    padding-left: 0;
     margin-bottom: 25;
 }
 
 input{
+    border:hsl(130, 70%, 27%)
     flex: 1;
     border: none;
     outline: none;
     background: transparent;
-    padding: 10px;
+    padding: 10px ,20 px;
     font-weight: 14px;
 }
 
-
+#addTask{
+    margin-left: 250px;
+}
 #removeButton,#addTask{
     border: none;
     outline: none;
